@@ -1,4 +1,4 @@
-package main
+package search
 
 import (
 	"fmt"
@@ -31,8 +31,7 @@ func groupTitles(titles []string) map[string][]string {
 }
 
 //./group_similar_titles.go:44:2: fmt.Println call has possible formatting directive %v
-func main() {
-
+func GroupSimilarTitles() {
 	titles := []string{"pushpa", "puspha", "adipurush", "Adipurush", "apuhsp", "kubera"}
 	search := "puspha"
 	fmt.Printf("Search: %v", search)
