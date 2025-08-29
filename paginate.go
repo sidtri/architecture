@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"architecture.com/m/utils"
 )
@@ -9,6 +10,21 @@ import (
 type Display struct {
 	node  *utils.Node
 	stack Stack
+}
+
+type Page struct {
+	Items []string
+}
+
+func (page *Page) Serialize() string {
+	return strings.Join(page.Items, ", ")
+}
+
+func (page *Page) Deserialize(str string) {
+	page.Items = []string{}
+
+	data := strings.Split(str, ",")
+	page.Items = append(page.Items, data...)
 }
 
 func (d *Display) PushAll(node *utils.Node) {
@@ -35,17 +51,17 @@ func (d *Display) HasNext() bool {
 	return len(d.stack.items) > 0
 }
 
-func (d *Display) NextPage() []string {
-	var data []string
+func (d *Display) NextPage() Page {
+	var page Page
 
 	for i := 0; i < 10; i++ {
 		if d.HasNext() {
 			item := d.NextItem()
-			data = append(data, item.Value)
+			page.Items = append(page.Items, item.Value)
 		}
 	}
 
-	return data
+	return page
 }
 
 func new(node *utils.Node) *Display {
@@ -64,7 +80,7 @@ func Paginate() {
 	display := new(bst.Root)
 
 	display.PushAll(display.node)
-	for _, item := range display.NextPage() {
-		fmt.Println(item)
-	}
+	page := display.NextPage()
+
+	fmt.Println(page.Serialize())
 }
