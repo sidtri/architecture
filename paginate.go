@@ -1,27 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"architecture.com/m/utils"
+)
 
 type Display struct {
-	node  *Node
+	node  *utils.Node
 	stack Stack
 }
 
-func (d *Display) PushAll(node *Node) {
+func (d *Display) PushAll(node *utils.Node) {
 	d.stack.Push(node)
 
-	if node.left == nil {
+	if node.Left == nil {
 		return
 	} else {
-		d.PushAll(node.left)
+		d.PushAll(node.Left)
 	}
 }
 
-func (d *Display) NextItem() *Node {
+func (d *Display) NextItem() *utils.Node {
 	_, item := d.stack.Pop()
 
-	if item.right != nil {
-		d.PushAll(item.right)
+	if item.Right != nil {
+		d.PushAll(item.Right)
 	}
 
 	return item
@@ -37,19 +41,19 @@ func (d *Display) NextPage() []string {
 	for i := 0; i < 10; i++ {
 		if d.HasNext() {
 			item := d.NextItem()
-			data = append(data, item.value)
+			data = append(data, item.Value)
 		}
 	}
 
 	return data
 }
 
-func new(node *Node) *Display {
+func new(node *utils.Node) *Display {
 	return &Display{node: node}
 }
 
 func Paginate() {
-	var bst BinarySearchTree
+	var bst utils.BinarySearchTree
 
 	names := []string{"Jeanette", "Latasha", "Elvira", "Caryl", "Antoinette", "Cassie", "Charity", "Lyn", "Elia", "Anya", "Albert", "Cherlyn", "Lala", "Kandice", "Iliana"}
 
@@ -57,7 +61,7 @@ func Paginate() {
 		bst.Insert(name)
 	}
 
-	display := new(bst.root)
+	display := new(bst.Root)
 
 	display.PushAll(display.node)
 	for _, item := range display.NextPage() {

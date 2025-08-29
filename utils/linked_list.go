@@ -1,23 +1,16 @@
 package utils
 
-// Node represents a single node in a doubly linked list
-type Node struct {
-	Data interface{}
-	Next *Node
-	Prev *Node
-}
-
 // Create linked list
 type LinkedList struct {
-	Head *Node
-	Tail *Node
+	Head   *Node
+	Tail   *Node
 	Length int
 }
 
 func NewLinkedList() *LinkedList {
 	return &LinkedList{
-		Head: nil,
-		Tail: nil,
+		Head:   nil,
+		Tail:   nil,
 		Length: 0,
 	}
 }
@@ -100,3 +93,4 @@ func (ll *LinkedList) Display() []interface{} {
 	}
 	return elements
 }
+
