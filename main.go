@@ -19,4 +19,10 @@ func main() {
 
 	fmt.Println("-------------[Paginate]-----------------------------------------")
 	Paginate()
+
+	fmt.Println("-------------[DistanceBetweenNOdes]-----------------------------------------")
+	MaxDistanceBetweenNodes()
+
+	fmt.Println("-------------[Shift]-----------------------------------------")
+	Shift()
 }
