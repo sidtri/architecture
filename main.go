@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"architecture.com/m/utils"
+)
 
 func main() {
 	// Friends()
@@ -35,6 +37,20 @@ func main() {
 	// fmt.Println("\n-------------[FindSubstring]-----------------------------------------")
 	// FindSubstring("oneonetwo", []string{"one", "two"})
 
-	fmt.Println("\n-------------[BFSOnAdjacentMatrix]-----------------------------------------")
-	TBFSOnAdjacentMatrix()
+	// fmt.Println("\n-------------[BFSOnAdjacentMatrix]-----------------------------------------")
+	// TBFSOnAdjacentMatrix()
+	//
+
+	// fmt.Println("\n-------------[BubbleSort]-----------------------------------------")
+	//
+	// BubbleSort()
+
+	// Testing utils
+	// fmt.Println("\n-------------[Utils Test]-----------------------------------------")
+	// nums := []int{1, 2, 3, 4, 5}
+	// fmt.Printf("Sum of %v is %d\n", nums, utils.Sum(nums))
+
+	// fmt.Println("\n-------------[Heaps]-----------------------------------------")
+	//
+	utils.HeapCall()
 }

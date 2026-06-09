@@ -1,21 +1,8 @@
 package main
 
-// Identify the friends circles
-//
-
-// func identifyFriends(data [][]bool) int {
-//	for _, d := range data: {
-	
-// 	}
-// }
-
-// d := [[true, false, false, false], [false, true, false, false], [false, false, true, false], [false,false, false, true]]
-// identifyFriends(d)
-//
 import "fmt"
 
-
-func dfs (matrix [][]bool, visited []bool, i int) {
+func dfs(matrix [][]bool, visited []bool, i int) {
 	for j := 0; j < len(matrix); j++ {
 		if matrix[i][j] && !visited[j] {
 			visited[j] = true

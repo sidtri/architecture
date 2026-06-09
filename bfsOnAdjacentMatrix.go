@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Queue struct {
 	data []int
@@ -97,23 +95,6 @@ func TBFSOnAdjacentMatrix() {
 	target = 2
 	// expectedTraversal := []int{0, 1, 2}
 	// expectedPath := []int{0, 1, 2} // Shortest path
-
-	result = BFSOnAdjacentMatrix(adjMatrix, start, target)
-
-	fmt.Println("Reslt: ", result)
-
-	adjMatrix = [][]int{
-		{0, 1, 1, 0, 0},
-		{0, 0, 0, 1, 0},
-		{0, 0, 0, 0, 1},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-	}
-	start = 0
-	target = 4
-	// expectedTraversal := []int{0, 1, 3, 2, 4}  // One of the valid BFS orders
-	// expectedPath := []int{0, 1, 3, 2, 4}  // Shortest path
-	//
 
 	result = BFSOnAdjacentMatrix(adjMatrix, start, target)
 
